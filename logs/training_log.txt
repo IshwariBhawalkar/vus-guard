@@ -1,0 +1,21 @@
+2026-11-25 20:08:45,806 python 3.13.14 | sklearn 1.9.1 | pandas 3.1.1 | numpy 2.5.5
+2026-11-25 20:08:51,252 in-scope rows: 1800 labelled (R=1383, S=417), 33906 uncertain
+2026-11-25 20:08:51,256 missense labelled: R=411 S=219
+2026-11-25 20:09:11,704 seed 0 done
+2026-11-25 20:09:31,763 seed 1 done
+2026-11-25 20:09:52,057 seed 2 done
+2026-11-25 20:09:52,900 === missense_only (n=630, R=411) ===
+2026-11-25 20:09:52,900 logreg         ROC-AUC 0.962+-0.004  PR-AUC 0.976  bal.acc(no abstain) 0.903
+2026-11-25 20:09:52,900 random_forest  ROC-AUC 0.955+-0.003  PR-AUC 0.965  bal.acc(no abstain) 0.916
+2026-11-25 20:09:52,901 gene_prior     ROC-AUC 0.893+-0.004  PR-AUC 0.912  bal.acc(no abstain) 0.731
+2026-11-25 20:09:52,901 hotspot_only   ROC-AUC 0.944+-0.002  PR-AUC 0.960  bal.acc(no abstain) 0.919
+2026-11-25 20:09:52,901 === all_in_scope (n=1800, R=1383) ===
+2026-11-25 20:09:52,901 logreg         ROC-AUC 0.985+-0.001  PR-AUC 0.995  bal.acc(no abstain) 0.943
+2026-11-25 20:09:52,901 random_forest  ROC-AUC 0.983+-0.001  PR-AUC 0.995  bal.acc(no abstain) 0.943
+2026-11-25 20:09:52,902 gene_prior     ROC-AUC 0.955+-0.002  PR-AUC 0.984  bal.acc(no abstain) 0.797
+2026-11-25 20:09:52,902 hotspot_only   ROC-AUC 0.961+-0.001  PR-AUC 0.984  bal.acc(no abstain) 0.933
+2026-11-25 20:09:52,902 selected model (best missense ROC-AUC): logreg
+2026-11-25 20:09:52,902 conformal alpha=0.10 [missense_only]: coverage 0.919 abstain 0.066 acc_decided 0.915 sens 0.918 spec 0.909
+2026-11-25 20:09:52,903 conformal alpha=0.10 [all_in_scope]: coverage 0.917 abstain 0.067 acc_decided 0.959 sens 0.962 spec 0.949
+2026-11-25 20:10:18,022 uncertain variants (n=33906): {'S': 30431, 'R': 1744, 'abstain': 1731}
+2026-11-25 20:10:18,326 done in 92.5s
