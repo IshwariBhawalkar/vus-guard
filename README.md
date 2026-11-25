@@ -1,246 +1,246 @@
-# \# VUS-Guard
+﻿# VUS-Guard
 
-# \### Uncertainty-Aware Prediction of Drug Resistance-Associated Mutations in \*Mycobacterium tuberculosis\*
+### Uncertainty-Aware Prediction of Drug Resistance-Associated Mutations in \*Mycobacterium tuberculosis\*
 
-# 
 
-# <p align="center">
 
-# &#x20; <strong>Developed by Ishwari Bhawalkar</strong><br>
+<p align="center">
 
-# &#x20; Biotechnology | Machine Learning | Bioinformatics
+&#x20; <strong>Developed by Ishwari Bhawalkar</strong><br>
 
-# </p>
+&#x20; Biotechnology | Machine Learning | Bioinformatics
 
-# 
+</p>
 
-# <p align="center">
 
-# &#x20; <a href="https://ishwari-bhawalkar-vusguard.streamlit.app">Live Application</a> |
 
-# &#x20; <a href="https://github.com/IshwariBhawalkar/vus-guard">GitHub Repository</a>
+<p align="center">
 
-# </p>
+&#x20; <a href="https://ishwari-bhawalkar-vusguard.streamlit.app">Live Application</a> |
 
-# 
+&#x20; <a href="https://github.com/IshwariBhawalkar/vus-guard">GitHub Repository</a>
 
-# \---
+</p>
 
-# 
 
-# \## Overview
 
-# 
+\---
 
-# \*\*VUS-Guard\*\* is an uncertainty-aware machine learning research prototype designed to analyse genetic mutations associated with drug resistance in \*Mycobacterium tuberculosis\*.
 
-# 
 
-# Drug-resistant tuberculosis remains a major global health challenge. Identifying mutations associated with resistance can support the interpretation of genomic data and contribute to research in precision medicine.
+## Overview
 
-# 
 
-# VUS-Guard uses machine learning to analyse mutation-related information and classify variants into three possible outcomes:
 
-# 
+\*\*VUS-Guard\*\* is an uncertainty-aware machine learning research prototype designed to analyse genetic mutations associated with drug resistance in \*Mycobacterium tuberculosis\*.
 
-# \- \*\*Resistant:\*\* The model predicts an association with drug resistance.
 
-# \- \*\*Susceptible:\*\* The model predicts an association with drug susceptibility.
 
-# \- \*\*Abstain:\*\* The model does not make a confident prediction.
+Drug-resistant tuberculosis remains a major global health challenge. Identifying mutations associated with resistance can support the interpretation of genomic data and contribute to research in precision medicine.
 
-# 
 
-# Unlike a conventional binary classifier, VUS-Guard incorporates an abstention mechanism to avoid forcing predictions when the available evidence is insufficient.
 
-# 
+VUS-Guard uses machine learning to analyse mutation-related information and classify variants into three possible outcomes:
 
-# \## Key Features
 
-# 
 
-# \- Machine learning-based mutation classification.
+\- \*\*Resistant:\*\* The model predicts an association with drug resistance.
 
-# \- Drug-specific and gene-specific variant analysis.
+\- \*\*Susceptible:\*\* The model predicts an association with drug susceptibility.
 
-# \- Uncertainty-aware prediction with an abstention mechanism.
+\- \*\*Abstain:\*\* The model does not make a confident prediction.
 
-# \- Model validation using held-out data.
 
-# \- Sanity checks to evaluate model behaviour.
 
-# \- Interactive Streamlit application.
+Unlike a conventional binary classifier, VUS-Guard incorporates an abstention mechanism to avoid forcing predictions when the available evidence is insufficient.
 
-# \- Visualisation of model performance and prediction results.
 
-# 
 
-# \## Technology Stack
+## Key Features
 
-# 
 
-# | Category | Technologies |
 
-# |---|---|
+\- Machine learning-based mutation classification.
 
-# | Programming Language | Python |
+\- Drug-specific and gene-specific variant analysis.
 
-# | Data Processing | Pandas, NumPy |
+\- Uncertainty-aware prediction with an abstention mechanism.
 
-# | Machine Learning | Scikit-learn |
+\- Model validation using held-out data.
 
-# | Bioinformatics | Biopython |
+\- Sanity checks to evaluate model behaviour.
 
-# | Model Persistence | Joblib |
+\- Interactive Streamlit application.
 
-# | Visualisation | Matplotlib |
+\- Visualisation of model performance and prediction results.
 
-# | Web Application | Streamlit |
 
-# | Data Format | CSV, Excel |
 
-# 
+## Technology Stack
 
-# \## Model Performance and Validation
 
-# 
 
-# The model was evaluated using multiple validation approaches to examine its predictive performance and generalisation behaviour.
+| Category | Technologies |
 
-# 
+|---|---|
 
-# | Evaluation Metric | Observed Result |
+| Programming Language | Python |
 
-# |---|---:|
+| Data Processing | Pandas, NumPy |
 
-# | Missense ROC-AUC | 0.962 |
+| Machine Learning | Scikit-learn |
 
-# | Position-held-out mean AUC | 0.965 |
+| Bioinformatics | Biopython |
 
-# | Label permutation mean AUC | 0.477 |
+| Model Persistence | Joblib |
 
-# | Leave-gene-out mean AUC | 0.545 |
+| Visualisation | Matplotlib |
 
-# 
+| Web Application | Streamlit |
 
-# \### Understanding the Results
+| Data Format | CSV, Excel |
 
-# 
 
-# \- \*\*Missense ROC-AUC:\*\* Indicates strong discrimination on the evaluated missense mutation data.
 
-# \- \*\*Position-held-out validation:\*\* Tests performance on mutation positions excluded during training.
+## Model Performance and Validation
 
-# \- \*\*Label permutation:\*\* Checks whether the model performs better than expected when labels are shuffled.
 
-# \- \*\*Leave-gene-out validation:\*\* Evaluates how well the model generalises to genes not represented in training.
 
-# 
+The model was evaluated using multiple validation approaches to examine its predictive performance and generalisation behaviour.
 
-# The lower leave-gene-out performance highlights an important limitation: predictions for previously unseen genes require additional evidence and careful interpretation.
 
-# 
 
-# \## Uncertainty-Aware Prediction
+| Evaluation Metric | Observed Result |
 
-# 
+|---|---:|
 
-# A central feature of VUS-Guard is its ability to abstain from making a prediction.
+| Missense ROC-AUC | 0.962 |
 
-# 
+| Position-held-out mean AUC | 0.965 |
 
-# When the model encounters insufficient supporting evidence or an uncertain prediction, it can return an \*\*ABSTAIN\*\* result instead of automatically assigning a resistant or susceptible label.
+| Label permutation mean AUC | 0.477 |
 
-# 
+| Leave-gene-out mean AUC | 0.545 |
 
-# This is particularly important in genomic interpretation, where an incorrect prediction may lead to misleading conclusions.
 
-# 
 
-# \*\*An abstention is not a diagnosis and does not indicate that a mutation is resistant or susceptible.\*\*
+### Understanding the Results
 
-# 
 
-# \## Data Source
 
-# 
+\- \*\*Missense ROC-AUC:\*\* Indicates strong discrimination on the evaluated missense mutation data.
 
-# The project uses the WHO 2023 catalogue of mutations associated with drug resistance in \*Mycobacterium tuberculosis\* as its reference data source.
+\- \*\*Position-held-out validation:\*\* Tests performance on mutation positions excluded during training.
 
-# 
+\- \*\*Label permutation:\*\* Checks whether the model performs better than expected when labels are shuffled.
 
-# The catalogue provides mutation-level information used in preparing the processed dataset for model development and evaluation.
+\- \*\*Leave-gene-out validation:\*\* Evaluates how well the model generalises to genes not represented in training.
 
-# 
 
-# \## Application
 
-# 
+The lower leave-gene-out performance highlights an important limitation: predictions for previously unseen genes require additional evidence and careful interpretation.
 
-# The VUS-Guard application is built using Streamlit and provides an interactive interface for exploring mutation predictions.
 
-# 
 
-# \*\*Try the application:\*\*
+## Uncertainty-Aware Prediction
 
-# 
 
-# \[Launch VUS-Guard](https://ishwari-bhawalkar-vusguard.streamlit.app)
 
-# 
+A central feature of VUS-Guard is its ability to abstain from making a prediction.
 
-# The application allows users to:
 
-# \- Select a drug.
 
-# \- Enter a gene and mutation.
+When the model encounters insufficient supporting evidence or an uncertain prediction, it can return an \*\*ABSTAIN\*\* result instead of automatically assigning a resistant or susceptible label.
 
-# \- View the model's prediction.
 
-# \- Examine prediction confidence and abstention behaviour.
 
-# \- Review model reliability information.
+This is particularly important in genomic interpretation, where an incorrect prediction may lead to misleading conclusions.
 
-# 
 
-# \## Project Structure
 
-# 
+\*\*An abstention is not a diagnosis and does not indicate that a mutation is resistant or susceptible.\*\*
 
-# ```text
 
-# vus-guard/
 
-# │
+## Data Source
 
-# ├── app/
 
-# │   └── app.py
 
-# │
+The project uses the WHO 2023 catalogue of mutations associated with drug resistance in \*Mycobacterium tuberculosis\* as its reference data source.
 
-# ├── data/
 
-# │   └── processed/
 
-# │
+The catalogue provides mutation-level information used in preparing the processed dataset for model development and evaluation.
 
-# ├── models/
 
-# │   └── vus\_guard.joblib
 
-# │
+## Application
 
-# ├── reports/
 
-# │   ├── fig1\_validation.png
 
-# │   ├── fig2\_abstention.png
+The VUS-Guard application is built using Streamlit and provides an interactive interface for exploring mutation predictions.
 
-# │   ├── fig3\_vus\_predictions.png
 
-# │   ├── metrics.json
 
-# │   ├── o
+\*\*Try the application:\*\*
+
+
+
+\[Launch VUS-Guard](https://ishwari-bhawalkar-vusguard.streamlit.app)
+
+
+
+The application allows users to:
+
+\- Select a drug.
+
+\- Enter a gene and mutation.
+
+\- View the model's prediction.
+
+\- Examine prediction confidence and abstention behaviour.
+
+\- Review model reliability information.
+
+
+
+## Project Structure
+
+
+
+```text
+
+vus-guard/
+
+â”‚
+
+â”œâ”€â”€ app/
+
+â”‚   â””â”€â”€ app.py
+
+â”‚
+
+â”œâ”€â”€ data/
+
+â”‚   â””â”€â”€ processed/
+
+â”‚
+
+â”œâ”€â”€ models/
+
+â”‚   â””â”€â”€ vus\_guard.joblib
+
+â”‚
+
+â”œâ”€â”€ reports/
+
+â”‚   â”œâ”€â”€ fig1\_validation.png
+
+â”‚   â”œâ”€â”€ fig2\_abstention.png
+
+â”‚   â”œâ”€â”€ fig3\_vus\_predictions.png
+
+â”‚   â”œâ”€â”€ metrics.json
+
+â”‚   â”œâ”€â”€ o
 
